@@ -1,0 +1,49 @@
+#! /bin/bash
+# This shell script for udpate work every day
+# command parameter: all
+# update all without prompt
+
+#update system function
+function up_sys() {
+    echo "apt-get update"
+    sudo apt-get update
+    echo "apt-get upgrade"
+    sudo apt-get upgrade
+    echo "System update done."
+}
+
+#update system function without prompt
+function up_sys_yes() {
+    echo "apt-get update"
+    sudo apt-get update
+    echo "apt-get upgrade"
+    sudo apt-get -y upgrade
+    echo "System update done."
+}
+
+#update nodejs module function
+function up_no_mo() {
+    echo "npm update -g"
+    sudo npm update -g
+}
+
+#command parameter
+if [ $# -eq 1 ] && [ $1 == 'all' ]; then
+    #update all
+    up_sys_yes
+    up_no_mo
+#update one by one
+else
+    #update system
+    read -p "Do you wish to update system[Y/n]" yn
+    case $yn in
+        [Nn]* ) echo "Abort system update";;
+        * ) up_sys;;
+    esac
+    #update nodejs module
+    read -p "Do you wish to update nodejs module[Y/n]" yn
+    case $yn in
+        [Nn]* ) echo "Abort nodejs module update";;
+        * ) up_no_mo;;
+    esac
+fi
