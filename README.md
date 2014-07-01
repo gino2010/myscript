@@ -9,4 +9,4 @@ All scripts are for Ubuntu system
 
 update system and npm moudule
 
-paramter: all    update all without prompt
+parameter: all    update all without prompt
