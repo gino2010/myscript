@@ -1,0 +1,160 @@
+1.install google-chrome from offical website via deb file
+
+2.update language support via system language tool
+
+3.install JDK 8 reference website: http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer
+
+4.install python gevent and vte lib:
+sudo apt-get install python-gevent
+sudo apt-get install python-vte
+
+5.import goagent cert (can pass):
+install cert manager tool:
+apt-get install libnss3-tools 
+import cert file:
+certutil -d sql:$HOME/.pki/nssdb -A -t TC -n "goagent" -i /usr/proxy/goagent/local/CA.crt  
+
+6.install jetbrains software
+
+7.optmize system
+http://www.webupd8.org/2014/04/10-things-to-do-after-installing-ubuntu.html
+Done:1.3\1.5\2.1\2.2\
+gsettings set com.canonical.Unity.Lenses disabled-scopes "['more_suggestions-amazon.scope', 'more_suggestions-u1ms.scope', 'more_suggestions-populartracks.scope', 'music-musicstore.scope', 'more_suggestions-ebay.scope', 'more_suggestions-ubuntushop.scope', 'more_suggestions-skimlinks.scope']"
+
+4.1(just add ppa source not install)
+sudo apt-add-repository ppa:pipelight/stable
+sudo apt-get update
+sudo apt-get install pipelight-multi
+
+Then, install the Silverlight plugin using the following command:
+sudo pipelight-plugin --enable silverlight
+
+To install the Widevine plugin, use the command below:
+sudo pipelight-plugin --enable widevine
+8.1\8.2\9.1\
+
+8.install git and smartgit
+sudo apt-get install git
+
+9.install android
+sudo dpkg --add-architecture i386
+sudo apt-get update
+sudo apt-get install libncurses5:i386 libstdc++6:i386 zlib1g:i386
+apt-get install libgl1-mesa-dev(better don't install)
+change /etc/environment add path
+https://help.ubuntu.com/community/EnvironmentVariables
+
+10.install mysql and sqlite
+sudo apt-get install mysql-server
+sudo apt-get install sqlite3
+install emma gui and sqliteman
+
+stop mysql service auto start
+nano /etc/init/mysql.conf
+Comment out the "start on" line near the top of the file (better)
+(or)
+sudo update-rc.d mysql defaults
+sudo update-rc.d -f mysql remove
+
+service mysql(d) start/status/stop
+sudo /etc/init.d/mysql start
+
+http://askubuntu.com/questions/19320/how-to-enable-or-disable-services
+
+11.install tomcat(not done)
+https://www.digitalocean.com/community/articles/how-to-install-apache-tomcat-on-ubuntu-12-04
+
+12.install mysql-python
+apt-get install python-dev libmysqlclient-dev
+reference:http://codeinthehole.com/writing/how-to-set-up-mysql-for-python-on-ubuntu/
+http://stackoverflow.com/questions/7459766/installing-mysql-python
+
+dump and import database:http://stackoverflow.com/questions/17666249/how-to-import-a-sql-file-using-the-command-line-in-mysql
+
+13.install npm and phonegap
+sudo add-apt-repository ppa:chris-lea/node.js
+sudo apt-get update
+sudo apt-get install nodejs
+
+sudo npm install -g cordova(better)
+sudo npm install -g phonegap
+
+set proxy for terminal:
+http://www.webupd8.org/2010/10/how-to-set-proxy-for-terminal-quick.html
+http://askubuntu.com/questions/73287/how-do-i-install-a-root-certificate
+
+14.install ant
+#sudo add-apt-repository ppa:eclipse-team/debian-package
+#sudo apt-get update
+sudo apt-get install ant
+
+15.configure dnsmasq (not done)
+http://www.leaseweblabs.com/2013/08/wildcard-dns-ubuntu-hosts-file-using-dnsmasq/
+
+16.install shadowsocks via nodejs
+sudo npm install -g shadowsocks
+configure config.json file:
+{
+    "server":"107.150.28.176",
+    "server_port":1993,
+    "local_port":8020,
+    "password":"flybbs.ru",
+    "timeout":600,
+    "method":"aes-256-cfb"
+}
+
+17. simple screen recorder (not installed)
+http://www.maartenbaert.be/simplescreenrecorder/
+
+18. ATOM editor
+http://www.webupd8.org/2014/05/install-atom-text-editor-in-ubuntu-via-ppa.html
+
+19. Pushbullet (not installed)
+http://www.webupd8.org/2014/05/pushbullet-indicator-send-files-links.html
+
+20. Android Studio via ppa (not installed)
+http://www.webupd8.org/2014/05/install-android-studio-in-ubuntu-via-ppa.html
+
+21. install ubuntu theme
+http://numixproject.org/
+https://launchpad.net/~numix/+archive/ppa
+numix-gtk-theme					install
+numix-icon-theme				install
+numix-icon-theme-circle				install
+numix-icon-theme-shine				install
+
+good way to remove a package
+http://askubuntu.com/questions/187888/what-is-the-correct-way-to-completely-remove-an-application
+
+22.fix brightness problem
+http://itsfoss.com/fix-brightness-ubuntu-1310/
+successful:
+sudo gedit /etc/rc.local
+echo 8 > /sys/class/backlight/acpi_video0/brightness
+
+
+23.emma support utf-8
+http://blog.csdn.net/apoxlo/article/details/6967085
+
+24.mysql allow remote connnet
+grant all privileges on *.* to 'root'@'%' identified by 'root';
+flush privileges;
+
+modify /etc/mysql/my.cnf
+# bind-address		= 127.0.0.1
+
+25.set system proxy command(tried)
+gsettings set org.gnome.system.proxy.socks host '127.0.0.1'
+gsettings set org.gnome.system.proxy.socks port 8020
+gsettings set org.gnome.system.proxy mode 'manual'
+
+# to disable proxy:
+# gsettings set org.gnome.system.proxy mode 'none'
+
+26. chrome title garbled
+sudo apt-get install ttf-wqy-microhei ttf-wqy-zenhei xfonts-wqy
+OR
+http://blog.csdn.net/loveaborn/article/details/29579787
