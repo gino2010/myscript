@@ -82,6 +82,8 @@ sudo apt-get install nodejs
 sudo npm install -g cordova(better)
 sudo npm install -g phonegap
 
+sudo npm cache clean -f
+
 set proxy for terminal:
 http://www.webupd8.org/2010/10/how-to-set-proxy-for-terminal-quick.html
 http://askubuntu.com/questions/73287/how-do-i-install-a-root-certificate
@@ -158,3 +160,17 @@ gsettings set org.gnome.system.proxy mode 'manual'
 sudo apt-get install ttf-wqy-microhei ttf-wqy-zenhei xfonts-wqy
 OR
 http://blog.csdn.net/loveaborn/article/details/29579787
+
+27. set proxy for git
+$git config --global --list
+
+git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080
+git config --global https.proxy http://proxyuser:proxypwd@proxy.server.com:8080
+
+git config --global http.proxy "" or
+git config --global --unset http.proxy
+git config --global http.sslVerify false
+
+28. SSH Proxy
+ssh -N -v username@hostip -D 127.0.0.1:7070
+ssh -qTfnN -D 7070 用户名@服务器
