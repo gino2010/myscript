@@ -148,6 +148,8 @@ flush privileges;
 modify /etc/mysql/my.cnf
 # bind-address		= 127.0.0.1
 
+create database DATABASE_NAME default character set utf8 collate utf8_unicode_ci;
+
 25.set system proxy command(tried)
 gsettings set org.gnome.system.proxy.socks host '127.0.0.1'
 gsettings set org.gnome.system.proxy.socks port 8020
@@ -174,3 +176,10 @@ git config --global http.sslVerify false
 28. SSH Proxy
 ssh -N -v username@hostip -D 127.0.0.1:7070
 ssh -qTfnN -D 7070 用户名@服务器
+
+29. change diretory or file
+To change all the directories to 755 (-rwxr-xr-x):
+find /opt/lampp/htdocs -type d -exec chmod 755 {} \;
+
+To change all the files to 644 (-rw-r--r--):
+find /opt/lampp/htdocs -type f -exec chmod 644 {} \;
