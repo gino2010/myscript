@@ -175,7 +175,7 @@ git config --global http.sslVerify false
 
 28. SSH Proxy
 ssh -N -v username@hostip -D 127.0.0.1:7070
-ssh -qTfnN -D 7070 用户名@服务器
+ssh -qTfnN -D 7070 Username@Server
 
 29. change diretory or file
 To change all the directories to 755 (-rwxr-xr-x):
