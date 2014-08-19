@@ -183,3 +183,28 @@ find /opt/lampp/htdocs -type d -exec chmod 755 {} \;
 
 To change all the files to 644 (-rw-r--r--):
 find /opt/lampp/htdocs -type f -exec chmod 644 {} \;
+
+30. install redis-server
+sudo apt-get install redis-server
+stop autostart
+http://stackoverflow.com/questions/11857198/how-to-stop-redis-server-autostart
+
+31. unzip wrong coding
+unzip -O CP936 xxx.zip (ÓÃGBK, GB18030Ò²¿ÉÒÔ)
+OR
+/etc/environment add following lines
+UNZIP="-O CP936"
+ZIPINFO="-O CP936"
+
+32. network-manager-gnome sstp plugin
+http://sourceforge.net/projects/sstp-client/files/network-manager-sstp/
+32bit：
+libsstp-client0_1.0.9_i386.deb
+sstp-client_1.0.9_i386.deb
+network-manager-sstp_0.9.4-0ubuntu2_i386.deb
+network-manager-sstp-gnome_0.9.4-0ubuntu2_i386.deb
+64bit：
+libsstp-client0_1.0.9_amd64.deb
+sstp-client_1.0.9_amd64.deb
+network-manager-sstp_0.9.6-0ubuntu1_amd64.deb
+network-manager-sstp-gnome_0.9.6-0ubuntu1_amd64.deb
