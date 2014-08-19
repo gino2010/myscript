@@ -190,7 +190,7 @@ stop autostart
 http://stackoverflow.com/questions/11857198/how-to-stop-redis-server-autostart
 
 31. unzip wrong coding
-unzip -O CP936 xxx.zip (ÓÃGBK, GB18030Ò²¿ÉÒÔ)
+unzip -O CP936 xxx.zip (GBK, GB18030)
 OR
 /etc/environment add following lines
 UNZIP="-O CP936"
