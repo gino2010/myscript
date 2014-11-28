@@ -1,0 +1,29 @@
+#about dnsmasq
+/usr/local/etc/dnsmasq.conf
+sudo cp -fv /usr/local/opt/dnsmasq/*.plist /Library/LaunchDaemons
+sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+sudo launchctl start homebrew.mxcl.dnsmasq
+sudo launchctl stop homebrew.mxcl.dnsmasq
+
+#about dnscrypt
+sudo launchctl stop homebrew.mxcl.dnscrypt-proxy
+sudo launchctl start homebrew.mxcl.dnscrypt-proxy
+
+#clear dns cache
+dscacheutil -flushcache (;sudo killall -HUP mDNSResponder)
+
+#mysql
+To connect:
+    mysql -uroot
+
+To have launchd start mysql at login:
+    ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
+Then to load mysql now:
+    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+Or, if you don't want/need launchctl, you can just run:
+    mysql.server start
+http://akrabat.com/php/setting-up-php-mysql-on-os-x-yosemite/
+
+#install redis
+brew install redis
